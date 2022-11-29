@@ -16,7 +16,7 @@ namespace HabitTracker.Controllers
         [HttpGet("{id}")]
         public User Get(int id)
         {
-            return DAL.GetOne(id);
+            return DAL.GetOneUser(id);
         }
     }
 }
