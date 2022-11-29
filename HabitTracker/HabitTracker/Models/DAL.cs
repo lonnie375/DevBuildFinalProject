@@ -127,18 +127,27 @@ namespace HabitTracker
         }
 
         //Create Tracking
-        public static Habit AddTracker(Habit habt)
+        public static Tracker AddTracker(Tracker track)
         {
             MySqlConnection db = new MySqlConnection(CS);
             db.Open();
-            db.Insert(habt);
+            db.Insert(track);
             db.Close();
-            return habt;
+            return track;
 
         }
 
         //Delete Tracking
+        public static void DeleteTracker(int id)
+        {
+            MySqlConnection db = new MySqlConnection(CS);
+            db.Open();
+            Tracker track = new Tracker();
+            track.id = id;
+            db.Delete(track);
+            db.Close();
 
+        }
 
 
     }
