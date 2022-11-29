@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HabitTracker.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("user")]
     [ApiController]
     public class UserController : ControllerBase
     {
+        [HttpGet]
+        
     }
 }
