@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../category.service';
+import { Habit } from '../habit';
+import { HabitService } from '../habit.service';
 
 @Component({
   selector: 'app-habit-list',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HabitListComponent implements OnInit {
 
-  constructor() { }
+  TheList: Habit[] = [];
+
+  constructor(private habitsrv: HabitService, private catSrv: CategoryService) { }
 
   ngOnInit(): void {
+    this.refresh();
+    
+  }
+
+  refresh() {
+    this.habitsrv.getAllHabits(
+      (result: Habit[]) => {
+        this.TheList = result;
+      }
+    )
   }
 
 }

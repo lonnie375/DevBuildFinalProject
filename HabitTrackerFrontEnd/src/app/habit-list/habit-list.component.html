@@ -1,2 +1,6 @@
-<p>habit-list works!</p>
-<app-habit-detail></app-habit-detail>
+
+<ng-container *ngFor="let habit of TheList">
+    
+    <app-habit-detail [habit]="habit"></app-habit-detail><br />
+
+</ng-container>
