@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { formatDate } from '@angular/common';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Category } from '../category';
+import { CategoryService } from '../category.service';
+import { Habit } from '../habit';
+import { HabitService } from '../habit.service';
 
 @Component({
   selector: 'app-add-habit-form',
@@ -7,9 +12,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddHabitFormComponent implements OnInit {
 
-  constructor() { }
+  newHabit: Habit = {
+    id: 0, users_id: 2, title: '', category_id: 0, amount: '', startDate: new Date(), endDate: new Date() , description: ''
+  };
 
-  ngOnInit(): void {
+
+  TheCategory: Category[] = []; 
+
+  @Output() save: EventEmitter<Habit> = new EventEmitter<Habit>(); 
+
+  constructor(private Categorysrv: CategoryService) { 
+    Categorysrv.getAllCategory(
+      (result: Category[]) => {
+        this.TheCategory = result; 
+      }
+    );
+  }
+
+  ngOnInit(): void { 
+  }
+
+  saveHabit(){
+    this.save.emit(this.newHabit);
+  }
+
+  clear(){
+    this.newHabit.title = ''; 
+    this.newHabit.category_id = 0; 
+    this.newHabit.amount = ''; 
+    this.newHabit.description = ''; 
+    this.newHabit.startDate = new Date(); 
+    this.newHabit.endDate = new Date();
   }
 
 }
