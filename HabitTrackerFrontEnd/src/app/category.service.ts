@@ -13,7 +13,7 @@ export class CategoryService {
     this.http.get<Category>('https://localhost:7198/category').subscribe(cb);
   }
 
-  getOneCategory(cb:any, cat: Category){
+  getOneCategory(cb:any, cat: any){
     this.http.get<Category>(`https://localhost:7198/category/${cat}`).subscribe(cb);
   }
 }
