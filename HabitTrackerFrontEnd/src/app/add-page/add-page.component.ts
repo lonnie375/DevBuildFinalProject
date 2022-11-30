@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Habit } from '../habit';
+import { HabitService } from '../habit.service';
 
 @Component({
   selector: 'app-add-page',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private Habitsrv: HabitService) { }
 
   ngOnInit(): void {
+  }
+
+  save(habit: Habit){
+    this.Habitsrv.addHabit(
+      (result: Habit) => {
+        alert(result.title)
+      }, 
+      habit
+    );
   }
 
 }
