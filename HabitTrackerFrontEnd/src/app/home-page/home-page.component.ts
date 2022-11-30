@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  UserList: User[] = [];
 
-  ngOnInit(): void {
+  selectedId: number = 0;
+  selectedUsername: string = '';
+  
+  user: User = {
+    id: 0,
+    username: ''
   }
 
+  @Output() sendId:EventEmitter<number> = new EventEmitter<number>();
+  constructor(private UserSrv: UserService) {
+    this.UserSrv.getAllUsers(
+      (result: User[]) => {
+        this.UserList = result;
+      }
+    )
+   }
+
+
+  ngOnInit(): void {
+
+  }
+
+  logIn(){
+    this.sendId.emit(this.selectedId);
+    
+  }
 }
