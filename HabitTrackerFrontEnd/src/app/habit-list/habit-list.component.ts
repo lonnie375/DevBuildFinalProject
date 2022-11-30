@@ -12,7 +12,7 @@ export class HabitListComponent implements OnInit {
 
   TheList: Habit[] = [];
 
-  constructor(private habitsrv: HabitService, private catSrv: CategoryService) { }
+  constructor(private habitsrv: HabitService) { }
 
   ngOnInit(): void {
     this.refresh();
