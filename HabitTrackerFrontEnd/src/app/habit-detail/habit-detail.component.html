@@ -1,6 +1,18 @@
-<strong>{{habit.title}}</strong><br />
+<!-- Was thinking a table might be easier to style in the future? Commented out unformatted text below -->
+
+<table>
+    <th><strong>{{habit.title}}</strong></th>
+    <tr>{{habit.category_id}}</tr>
+    <tr>{{habit.amount}} </tr>
+    <tr>{{habit.startDate | date : 'shortDate' }}</tr>
+    <tr>{{habit.endDate   | date : 'shortDate' }}</tr>
+    <tr>{{habit.description}}</tr>
+</table>
+
+
+<!-- <strong>{{habit.title}}</strong><br />
 {{habit.category_id}} <br/>
 {{habit.amount}} <br />
-{{habit.startDate}} <br />
-{{habit.endDate}} <br />
-{{habit.description}} <br />
+{{habit.startDate | date : 'shortDate' }} <br />
+{{habit.endDate   | date : 'shortDate' }} <br />
+{{habit.description}} <br /> -->
