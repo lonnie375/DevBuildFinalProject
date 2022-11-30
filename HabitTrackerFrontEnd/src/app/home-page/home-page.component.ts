@@ -20,6 +20,7 @@ export class HomePageComponent implements OnInit {
   }
 
   @Output() sendId:EventEmitter<number> = new EventEmitter<number>();
+  
   constructor(private UserSrv: UserService) {
     this.UserSrv.getAllUsers(
       (result: User[]) => {
@@ -35,6 +36,6 @@ export class HomePageComponent implements OnInit {
 
   logIn(){
     this.sendId.emit(this.selectedId);
-    
+
   }
 }
