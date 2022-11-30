@@ -2,7 +2,14 @@
 
 <table>
     <th><strong>{{habit.title}}</strong></th>
-    <tr>{{habit.category_id}}</tr>
+    <ng-container *ngFor="let cat of CategoryList">
+        
+        <tr *ngIf="habit.category_id == cat.id">
+            {{cat.type}}
+        </tr>
+
+    </ng-container>
+ 
     <tr>{{habit.amount}} </tr>
     <tr>{{habit.startDate | date : 'shortDate' }}</tr>
     <tr>{{habit.endDate   | date : 'shortDate' }}</tr>

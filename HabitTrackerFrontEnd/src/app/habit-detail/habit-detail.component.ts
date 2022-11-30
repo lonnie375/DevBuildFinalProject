@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Category } from '../category';
+import { CategoryService } from '../category.service';
 import { Habit } from '../habit';
 
 @Component({
@@ -7,6 +9,8 @@ import { Habit } from '../habit';
   styleUrls: ['./habit-detail.component.css']
 })
 export class HabitDetailComponent implements OnInit {
+
+  CategoryList: Category[] = [];
 
   @Input() habit: Habit = {
       id: 0,
@@ -19,9 +23,18 @@ export class HabitDetailComponent implements OnInit {
       description: "have no idea how this category is going to display text from the database"
   }
 
-  constructor() { }
+  constructor(private catSrv: CategoryService) {
+
+    catSrv.getAllCategory(
+      (result: Category[]) => {
+        this.CategoryList = result;
+      }
+    );
+   }
 
   ngOnInit(): void {
   }
+
+ 
 
 }
