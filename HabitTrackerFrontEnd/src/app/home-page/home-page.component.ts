@@ -13,11 +13,9 @@ export class HomePageComponent implements OnInit {
   UserList: User[] = [];
 
   selectedId: number = 0;
-  selectedUsername: string = '';
-
   enteredUserName: string = '';
 
-  loginError: boolean = false;
+  loginError: boolean = true;
     
   user: User = {
     id: 0,
@@ -48,18 +46,19 @@ export class HomePageComponent implements OnInit {
     for(let index: number = 0; index < this.UserList.length; index++){
       if (this.UserList[index].username == this.enteredUserName){
         this.selectedId = this.UserList[index].id
+        this.loginError = false;
       }
-      else {
-        this.loginError = true;
-      }
+
     }
-    
+
     if (this.loginError == false){
       this.sendId.emit(this.selectedId);
       this.router.navigate(['habits']);
     }
     else {
       this.router.navigate(['']);
+      this.enteredUserName = '';
     }
   }
+
 }

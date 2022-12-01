@@ -1,14 +1,8 @@
 <h2>Welcome!</h2>
 <div>
     <h3>Who are you?</h3>
-<!--   <select [(ngModel)]="selectedId">
-        <option *ngFor="let u of UserList" [value]="u.id">{{u.username}}</option>
-    </select>
---> 
     <p *ngIf="loginError == true">Enter a valid User Name</p>
     <input type="text" [(ngModel)]="enteredUserName"/>
     
-
     <button (click)="logIn()">Log In</button>
-
 </div>
