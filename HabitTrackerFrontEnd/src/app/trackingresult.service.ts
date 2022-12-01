@@ -9,8 +9,8 @@ export class TrackingresultService {
 
   constructor(private http:HttpClient) { }
 
-  getTrackingResult(cb:any, userID: number){
-    this.http.get<Trackingresult>(`https://localhost:7198/tracker/${userID}`).subscribe(cb)
+  getTrackingResult(cb:any, habID: number){
+    this.http.get<Trackingresult>(`https://localhost:7198/tracker/${habID}`).subscribe(cb)
   }
 
 }

@@ -1,6 +1,10 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { TrackingresultService } from '../trackingresult.service';
 import { Trackingresult } from '../trackingresult';
+import { HabitService } from '../habit.service';
+import { UserService } from '../user.service';
+import { User } from '../user';
+import { Habit } from '../habit';
 
 @Component({
   selector: 'app-tracker-list',
@@ -8,15 +12,22 @@ import { Trackingresult } from '../trackingresult';
   styleUrls: ['./tracker-list.component.css']
 })
 export class TrackerListComponent implements OnInit {
+@Input() User:  User = {    id: 1, 
+  username: ""};
 
-  //get list of ID
+@Output() HabIDList: Habit[] = [];
 
-  //export list by ID type
 
-  constructor() { }
+  //get list of Habit IDs by User ID
+
+  //for each Habit ID send to Details for Tracking to pull list based on Habit ID
+
+
+  constructor(private HabServ: HabitService) { }
 
   ngOnInit(): void {
-  }
+    this.HabServ.getUserHabits((result: Habit[]) => this.HabIDList = result, this.User.id)
+  };
 
 
 

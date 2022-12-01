@@ -1,18 +1,24 @@
-<p>tracker-detail works!</p>
 
-<div *ngIf="trackedHabit" class="Tracker-Detail-Cont">
+
+<div  class="Tracker-Detail-Cont">
  
     <div class="Tracker-Detail-Name">
         {{ trackedHabit.title }}
     </div>
+    <!--
     <div class="Track-Time">
     <span class="Track-Bar-Text">   {{ timeLapse }} % complete </span><span class="Track-Bar-date"> ending  {{ trackedHabit.endDate }}  </span>
     </div>
+    -->
     <div class="Track-Complete">
+        How much task has been completeing
         
-         <!-- Task Complete X / XX -->
     </div>
-    
+  
+    <div *ngFor="let thisResult of currList"> 
+     Completed On:   {{ thisResult.date }}
+    </div>
+
    
 
 </div>

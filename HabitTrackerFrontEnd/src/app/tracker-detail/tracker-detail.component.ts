@@ -5,15 +5,11 @@ import { Habit } from '../habit';
 import { HabitService } from '../habit.service';
 import { outputAst } from '@angular/compiler';
 import { Trackingresult } from '../trackingresult';
+import { TrackingresultService } from '../trackingresult.service';
+
+ 
 
 
-
-function getTimeLapse(tDate: Date) {
-  let startDate: Date = tDate;
-  let rightNow: Date = new Date();
-  let timeDiff: number = Math.floor(startDate.getTime() - rightNow.getTime()) / (1000 * 3600 * 24);
-  return timeDiff;
-}
 
 
 
@@ -25,17 +21,40 @@ function getTimeLapse(tDate: Date) {
 
 
 
+
+
+
 export class TrackerDetailComponent implements OnInit {
 
-  currList: Trackingresult[] = [];
   
+
+  currList: Trackingresult[] = [];
+  userHabList: Habit[] = [];
+  
+
+
+
+
   @Input() trackingItem: Tracking = {
     id: 0, 
     habit_id: 0, 
     date: new Date()
   };
 
-  @Input() trackedHabit: Trackingresult = {
+
+ @Input() trackedHabit: Habit = {
+  id: 0, 
+  users_id: 0,
+  title: "", 
+  category_id: 0,
+  amount: "",
+  startDate: new Date, 
+  endDate: new Date, 
+  description: ""
+
+ }
+
+  @Input() trackedResult: Trackingresult = {
     id: 0,
     habit_id: 0,
     title: "" , 
@@ -44,21 +63,35 @@ export class TrackerDetailComponent implements OnInit {
     date: new Date
   };
 
+
   
 
+/*
 
-
-  @Output() timeLapse: number = ((getTimeLapse(this.trackedHabit.startDate))/(( this.trackedHabit.endDate.getTime() - this.trackedHabit.startDate.getTime()) / (1000 * 3600 * 24) ) *100); //since beginning 
+  @Output() timeLapse: number = ((this.getTimeLapse(this.trackedHabit.startDate))/(( this.trackedHabit.endDate.getTime() - this.trackedHabit.startDate.getTime()) / (1000 * 3600 * 24) ) *100); //since beginning 
 
   @Output() trackRecord: number = 0;
+
+ */
 
 
 
  
 
-  constructor() { }
+  constructor(private TrackServ: TrackingresultService) { }
 
   ngOnInit(): void {
-  }
+    this.TrackServ.getTrackingResult((result: Trackingresult[])=> this.currList = result, this.trackedHabit.id);
+  };
+/*
+
+ getTimeLapse(tDate: Date) {
+    let startDate: Date = tDate;
+    let rightNow: Date = new Date();
+    let timeDiff: number = Math.floor(startDate.getTime() - rightNow.getTime()) / (1000 * 3600 * 24);
+    return timeDiff;
+  };
+
+  */
 
 }

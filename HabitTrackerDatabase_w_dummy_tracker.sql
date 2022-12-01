@@ -56,6 +56,8 @@ insert into habit (users_id,title, category_id,amount, startDate, endDate, descr
 insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (1,"Balance Budget", 2,"Twice a day", "2022-11-29", "2022-12-31", "I'm broke"); 
 insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (1,"Drink Water", 2,"3 Liters a day", "2022-11-29", "2022-12-31", "So Dry!"); 
 
+insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (1,"Sleep 8 hours", 2, "Every day", "2022-11-29", "2022-12-31", "So tired"); 
+
 
 insert into tracker (habit_id, date) values (1,"2022-12-1");
 insert into tracker (habit_id, date) values (1,"2022-12-2");
@@ -63,4 +65,8 @@ insert into tracker (habit_id, date) values (1,"2022-12-3");
 insert into tracker (habit_id, date) values (2,"2022-12-19");
 
 
+select * from tracker;
 
+insert into tracker (habit_id, date) values (4,"2022-12-19");
+insert into tracker (habit_id, date) values (5,"2022-11-19");
+insert into tracker (habit_id, date) values (5,"2022-12-19");

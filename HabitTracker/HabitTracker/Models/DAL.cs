@@ -70,13 +70,13 @@ namespace HabitTracker
         }
 
         //GetUserHabits
-        public static List<int> GetUserHabits(int id)
+        public static List<Habit> GetUserHabits(int id)
         {
             MySqlConnection db = new MySqlConnection(CS);
             db.Open();
 
-            var sql = @"Select id from habit where users_id = "+ id + ";";
-            var result = db.Query<int>(sql).AsList();
+            var sql = @"Select * from habit where users_id = "+ id + ";";
+            var result = db.Query<Habit>(sql).AsList();
 
             db.Close();
             return result;
