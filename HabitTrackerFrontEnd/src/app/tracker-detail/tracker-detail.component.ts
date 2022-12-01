@@ -4,6 +4,8 @@ import { Tracking } from '../tracking';
 import { Habit } from '../habit';
 import { HabitService } from '../habit.service';
 import { outputAst } from '@angular/compiler';
+import { Trackingresult } from '../trackingresult';
+
 
 
 function getTimeLapse(tDate: Date) {
@@ -25,7 +27,7 @@ function getTimeLapse(tDate: Date) {
 
 export class TrackerDetailComponent implements OnInit {
 
-  currList: Tracking[] = [];
+  currList: Trackingresult[] = [];
   
   @Input() trackingItem: Tracking = {
     id: 0, 
@@ -33,18 +35,16 @@ export class TrackerDetailComponent implements OnInit {
     date: new Date()
   };
 
-  @Input() trackedHabit: Habit = {
+  @Input() trackedHabit: Trackingresult = {
     id: 0,
-    users_id: 0,
-    title: "" ,
-    category_id: 0, 
-    amount: "",
+    habit_id: 0,
+    title: "" , 
     startDate: new Date, 
     endDate: new Date, 
-    description: ""
+    date: new Date
   };
 
- 
+  
 
 
 
