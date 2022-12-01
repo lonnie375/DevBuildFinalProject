@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Dapper.Contrib.Extensions;
+using Dapper;
 
 namespace HabitTracker
 {
@@ -64,6 +65,19 @@ namespace HabitTracker
             MySqlConnection db = new MySqlConnection(CS);
             db.Open();
             var result = db.GetAll<Habit>().ToList();
+            db.Close();
+            return result;
+        }
+
+        //GetUserHabits
+        public static List<Habit> GetUserHabits(int id)
+        {
+            MySqlConnection db = new MySqlConnection(CS);
+            db.Open();
+
+            var sql = @"Select * from habit where users_id = "+ id + ";";
+            var result = db.Query<Habit>(sql).AsList();
+
             db.Close();
             return result;
         }
@@ -148,6 +162,37 @@ namespace HabitTracker
             db.Close();
 
         }
+
+        //Get Joined Tracking List
+
+       /* public static List<TrackerResults> GetTrackerResults(int user_id)
+        {
+            MySqlConnection db = new MySqlConnection(CS);
+            db.Open();
+            var sql = @"SELECT tracker.habit_id, habit.title, habit.startDate, habit.endDate, tracker.id, tracker.date FROM tracker INNER JOIN habit ON tracker.habit_id = habit.id WHERE habit.users_id =" + user_id + ";";
+            var result = db.Query<TrackerResults>(sql).AsList();
+            db.Close();
+            return result;
+        } */
+
+        public static List<TrackerResults> GetTrackerResults(int hab_id)
+        {
+            MySqlConnection db = new MySqlConnection(CS);
+            db.Open();
+            var sql = @"SELECT tracker.habit_id, habit.title, habit.startDate, habit.endDate, tracker.id, tracker.date FROM tracker INNER JOIN habit ON tracker.habit_id = habit.id WHERE habit.id =" + hab_id + ";";
+            var result = db.Query<TrackerResults>(sql).AsList();
+            db.Close();
+            return result;
+
+
+
+        }
+
+
+
+
+
+
 
 
     }

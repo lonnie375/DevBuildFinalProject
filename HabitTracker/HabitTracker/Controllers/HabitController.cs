@@ -37,5 +37,13 @@ namespace HabitTracker.Controllers
             return DAL.AddHabit(habt);
         }
 
+
+        [HttpGet("all/{user_id}")]
+        public List<Habit> GetAllUserHabits(int user_id)
+        {
+            return DAL.GetUserHabits(user_id);
+        }
+
+
     }
 }

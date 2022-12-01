@@ -24,5 +24,15 @@ namespace HabitTracker.Controllers
         {
             DAL.DeleteTracker(id);
         }
+
+
+        [HttpGet("{hab_id}")]
+        public List<TrackerResults> GetResults(int hab_id)
+        {
+            return DAL.GetTrackerResults(hab_id);
+        }
+
+
+
     }
 }

@@ -1,2 +1,6 @@
 <p>tracker-list works!</p>
-<app-tracker-detail></app-tracker-detail>
+
+<div *ngFor="let thisHab of HabIDList">
+    <app-tracker-detail [trackedHabit]="thisHab" > </app-tracker-detail>
+</div>
+
