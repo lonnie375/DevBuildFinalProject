@@ -28,4 +28,8 @@ export class HabitService {
   addHabit(cb: any, hab: Habit){
     this.http.post<Habit>('https://localhost:7198/habit', hab).subscribe(cb);
   }
+
+  getUserHabits(cb: any, id: number){
+    this.http.get<Habit>(`https://localhost:7198/habit/all/${id}`).subscribe(cb); 
+  }
 }
