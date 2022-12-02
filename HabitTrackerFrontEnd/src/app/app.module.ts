@@ -13,6 +13,7 @@ import { HabitDetailComponent } from './habit-detail/habit-detail.component';
 import { TrackerListComponent } from './tracker-list/tracker-list.component';
 import { TrackerDetailComponent } from './tracker-detail/tracker-detail.component';
 import { AddHabitFormComponent } from './add-habit-form/add-habit-form.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddHabitFormComponent } from './add-habit-form/add-habit-form.component
     HabitDetailComponent,
     TrackerListComponent,
     TrackerDetailComponent,
-    AddHabitFormComponent
+    AddHabitFormComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
