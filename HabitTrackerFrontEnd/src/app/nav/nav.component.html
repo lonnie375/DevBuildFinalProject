@@ -1,21 +1,14 @@
-
-<!--
-<h1>Habit Tracker</h1>
-<a routerLink="/">Home</a>
-<a routerLink="/habits">Habits</a>
-<a routerLink="/add">Add Habit</a>
-<a routerLink="/tracking">Tracking</a>
--->
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">  
-    <a class="navbar-brand" href="/habits">Habit Tracker</a>  
+    <a class="navbar-brand" href="/">Habit Tracker</a>  
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">    <span class="navbar-toggler-icon"></span>  </button>  
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">    
-        <div class="navbar-nav">      
-            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>      
+        <div class="navbar-nav">          
+            <ng-container *ngIf="userId !== 0">
             <a class="nav-item nav-link" href="/habits">Habits</a>      
             <a class="nav-item nav-link" href="/add">Add Habit</a>      
-            <a class="nav-item nav-link" href="/tracking">Tracking</a>
+            <a class="nav-item nav-link" href="/tracking">Tracking</a>  
+            <a class="nav-item nav-link active" href="/" (click)="logOut()">Log Out<span class="sr-only">(current)</span></a>                                
+            </ng-container>
         </div>
     </div>
 </nav>
