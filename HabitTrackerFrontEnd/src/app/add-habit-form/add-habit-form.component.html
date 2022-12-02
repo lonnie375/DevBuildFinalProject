@@ -1,7 +1,7 @@
 
 
 
-<input type="text" placeholder="Title" [(ngModel)]="newHabit.title"><br>
+<!-- <input type="text" placeholder="Title" [(ngModel)]="newHabit.title"><br>
 <select [(ngModel)]="newHabit.category_id" >
     <option *ngFor="let cat of TheCategory" [value]="cat.id">{{cat.type}}</option>
 </select><br>
@@ -10,3 +10,109 @@
 <input type="date" datetime="yyy-MM-dd" placeholder="End Date" [(ngModel)]="newHabit.endDate"><br>
 <input type="text" placeholder="Description" [(ngModel)]="newHabit.description"><br>
 <button (click)="saveHabit()" routerLink="/habits">Save</button> <button (click)="clear()">Clear</button><button routerLink="/habits">Cancel</button>
+ -->
+
+
+
+
+<!--Template Practice Below -->
+<!--https://codepen.io/chaiyachet/pen/OJyEPWr-->
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  </head>
+  
+  <body class="container bg-light">
+    <!-- Start Header form -->
+    <div class="text-center pt-5">
+      <img src="https://i.ibb.co/8cDgdFX/Logo.png" alt="network-logo" width="72" height="72" />
+      <h2>Add Habit</h2>
+      <p>
+        Please complete the form below
+      </p>
+    </div>
+    <!-- End Header form -->
+  
+    <!-- Start Card -->
+    <div class="card">
+      <!-- Start Card Body -->
+      <div class="card-body">
+        <!-- Start Form -->
+        <form id="bookingForm" action="#" method="" class="needs-validation" novalidate autocomplete="off">
+          <!-- Insert Title -->
+          <div class="form-group">
+            <label for="inputName">Title</label>
+            <input type="text" class="form-control" id="inputName" name="name" placeholder="Title" [(ngModel)]="newHabit.title" required />
+            <small class="form-text text-muted">Please provide title</small>
+          </div>
+          <!-- End Insert Title -->
+  
+            <!-- Start Input Start Time -->
+         
+                <label>Select a Category</label>
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <select class="form-control mr-1" id="inputStartTimeHour" name="startHour" [(ngModel)]="newHabit.category_id"  required>
+                    <option *ngFor="let cat of TheCategory" [value]="cat.id">{{cat.type}}</option>
+                    </select>
+                </div>
+                
+                <!-- End Input Start Time -->
+
+
+
+
+
+
+
+
+          <!-- Start Input Amount -->
+          <div class="form-group">
+            <label for="inputEmail">Amount</label>
+            <input type="text" class="form-control" id="inputEmail" name="amount" placeholder="Enter amount" [(ngModel)]="newHabit.amount" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+          </div>
+          <!-- End Input Amount -->
+            <!-- Start Input Date , Start Time and End Time -->
+            <div class="form-row">
+            <!-- Start Input Date -->
+                <div class="form-group col-md-4">
+                    <label for="inputDate">Start Date</label>
+                    <input type="date" class="form-control" id="inputDate" [(ngModel)]="newHabit.startDate" name="date" required />
+                    <small class="form-text text-muted">Please choose the start date for your new habit.</small>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputDate">End Date</label>
+                    <input type="date" class="form-control" id="inputDate" [(ngModel)]="newHabit.endDate" name="date" required />
+                    <small class="form-text text-muted">Please choose the end date for your new habit.</small>
+                </div>
+            </div>
+            <!-- End Input Date -->
+          <!-- Start Input Date , Start Time and End Time -->
+          <div class="form-row">
+          </div>
+          <!-- End Input Date , Start Time and End Time -->
+          <!-- Start Input Remark -->
+          <div class="form-group">
+            <label for="textAreaRemark">Description</label>
+            <textarea class="form-control" name="remark" id="textAreaRemark" rows="2" placeholder="Describe your habit" [(ngModel)]="newHabit.description"></textarea>
+          </div>
+          <!-- End Input Remark -->
+  
+          <!-- Start Submit Button -->
+          <button class="btn btn-primary  col-lg-2" (click)="saveHabit()" routerLink="/habits">Save</button> <button class="btn btn-primary col-lg-2" (click)="clear()">Clear</button><button class="btn btn-primary col-lg-2" routerLink="/habits">Cancel</button>
+          <!-- End Submit Button -->
+        </form>
+        <!-- End Form -->
+      </div>
+      <!-- End Card Body -->
+    </div>
+    <!-- End Card -->
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
