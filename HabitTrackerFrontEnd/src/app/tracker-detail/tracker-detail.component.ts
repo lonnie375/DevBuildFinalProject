@@ -7,34 +7,17 @@ import { outputAst } from '@angular/compiler';
 import { Trackingresult } from '../trackingresult';
 import { TrackingresultService } from '../trackingresult.service';
 
- 
-
-
-
-
-
 @Component({
   selector: 'app-tracker-detail',
   templateUrl: './tracker-detail.component.html',
   styleUrls: ['./tracker-detail.component.css']
 })
 
-
-
-
-
-
 export class TrackerDetailComponent implements OnInit {
-
-  
 
   currList: Trackingresult[] = [];
   userHabList: Habit[] = [];
   
-
-
-
-
   @Input() trackingItem: Tracking = {
     id: 0, 
     habit_id: 0, 
@@ -64,7 +47,6 @@ export class TrackerDetailComponent implements OnInit {
   };
 
 
-  
 
 /*
 
@@ -73,10 +55,6 @@ export class TrackerDetailComponent implements OnInit {
   @Output() trackRecord: number = 0;
 
  */
-
-
-
- 
 
   constructor(private TrackServ: TrackingresultService) { }
 

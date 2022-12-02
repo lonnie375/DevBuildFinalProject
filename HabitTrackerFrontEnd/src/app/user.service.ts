@@ -7,6 +7,11 @@ import { User } from './user';
 })
 export class UserService {
 
+  
+  userString: any = localStorage.getItem('userId');
+  
+  userId: number = parseInt(this.userString);
+
   constructor(private http: HttpClient) { }
 
   getAllUsers(cb: any){
@@ -16,4 +21,5 @@ export class UserService {
   getOneUser(cb: any, id:any){
     this.http.get<User>(`https://localhost:7198/user/${id}`).subscribe(cb);
   }
+
 }
