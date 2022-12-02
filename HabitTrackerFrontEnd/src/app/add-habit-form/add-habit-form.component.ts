@@ -4,6 +4,7 @@ import { Category } from '../category';
 import { CategoryService } from '../category.service';
 import { Habit } from '../habit';
 import { HabitService } from '../habit.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-add-habit-form',
@@ -13,7 +14,7 @@ import { HabitService } from '../habit.service';
 export class AddHabitFormComponent implements OnInit {
 
   newHabit: Habit = {
-    id: 0, users_id: 2, title: '', category_id: 0, amount: '', startDate: new Date(), endDate: new Date() , description: ''
+    id: 0, users_id: this.UserSrv.userId, title: '', category_id: 0, amount: '', startDate: new Date(), endDate: new Date() , description: ''
   };
 
 
@@ -21,7 +22,7 @@ export class AddHabitFormComponent implements OnInit {
 
   @Output() save: EventEmitter<Habit> = new EventEmitter<Habit>(); 
 
-  constructor(private Categorysrv: CategoryService) { 
+  constructor(private Categorysrv: CategoryService, private UserSrv: UserService) { 
     Categorysrv.getAllCategory(
       (result: Category[]) => {
         this.TheCategory = result; 

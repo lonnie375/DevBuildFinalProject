@@ -21,8 +21,6 @@ export class HomePageComponent implements OnInit {
     id: 0,
     username: ''
   }
-
-  @Output() sendId:EventEmitter<number> = new EventEmitter<number>();
   
   constructor(private UserSrv: UserService, private router: Router) {
 
@@ -48,11 +46,11 @@ export class HomePageComponent implements OnInit {
         this.selectedId = this.UserList[index].id
         this.loginError = false;
       }
-
     }
 
     if (this.loginError == false){
-      this.sendId.emit(this.selectedId);
+      localStorage.setItem('userId', this.selectedId.toString());
+      this.UserSrv.userId = this.selectedId;
       this.router.navigate(['habits']);
     }
     else {

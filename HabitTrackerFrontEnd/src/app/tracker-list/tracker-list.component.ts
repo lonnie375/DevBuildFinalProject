@@ -12,8 +12,6 @@ import { Habit } from '../habit';
   styleUrls: ['./tracker-list.component.css']
 })
 export class TrackerListComponent implements OnInit {
-@Input() User:  User = {    id: 1, 
-  username: ""};
 
 @Output() HabIDList: Habit[] = [];
 
@@ -23,13 +21,10 @@ export class TrackerListComponent implements OnInit {
   //for each Habit ID send to Details for Tracking to pull list based on Habit ID
 
 
-  constructor(private HabServ: HabitService) { }
+  constructor(private HabServ: HabitService, private UserSrv: UserService) { }
 
   ngOnInit(): void {
-    this.HabServ.getUserHabits((result: Habit[]) => this.HabIDList = result, this.User.id)
+    this.HabServ.getUserHabits(
+      (result: Habit[]) => {this.HabIDList = result}, this.UserSrv.userId)
   };
-
-
-
-
 }

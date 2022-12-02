@@ -16,8 +16,7 @@ export class AddPageComponent implements OnInit {
 
   save(habit: Habit){
     this.Habitsrv.addHabit(
-      (result: Habit) => {
-        alert(result.title)
+      () => {
       }, 
       habit
     );
