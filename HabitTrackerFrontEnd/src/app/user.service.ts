@@ -7,7 +7,6 @@ import { User } from './user';
 })
 export class UserService {
 
-  
   userString: any = localStorage.getItem('userId');
   
   userId: number = parseInt(this.userString);
