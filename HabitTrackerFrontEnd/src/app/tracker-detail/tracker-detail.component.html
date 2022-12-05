@@ -1,17 +1,18 @@
 
 
 <div  class="Tracker-Detail-Cont">
- 
+ <strong>
     <div class="Tracker-Detail-Name">
         {{ trackedHabit.title }}
     </div>
-    <!--
+</strong>
+
     <div class="Track-Time">
-    <span class="Track-Bar-Text">   {{ timeLapse }} % complete </span><span class="Track-Bar-date"> ending  {{ trackedHabit.endDate }}  </span>
+    <span class="Track-Bar-Text">   {{ getTimeLapse(trackedHabit) }}% Complete. </span><span class="Track-Bar-date"> Ending in {{ getDaysLeft(trackedHabit)}} days. </span>
     </div>
-    -->
+
     <div class="Track-Complete">
-        How much task has been completed
+        {{getSuccessRate(trackedHabit, currList)}}% Winrate. {{getSuccessDays(currList)}} out of {{getDaysSoFar(trackedHabit)}} days recorded wins!
         
     </div>
   
