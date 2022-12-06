@@ -17,7 +17,9 @@ export class TrackingService {
     this.http.post<Tracking>('https://localhost:7198/tracker', track).subscribe(cb);
   }
 
-  deleteTracking(cb:any, track: any){
-    this.http.delete<Tracking>(`https://localhost:7198/tracker/${track}`).subscribe(cb); 
+  deleteTracking(cb:any, id: any){
+    this.http.delete(`https://localhost:7198/tracker/${id}`).subscribe(cb); 
   }
 }
+
+

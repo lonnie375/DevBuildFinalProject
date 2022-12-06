@@ -1,6 +1,6 @@
 <!-- Was thinking a table might be easier to style in the future? Commented out unformatted text below -->
 
-<table>
+<table *ngIf="!editMode">
     <th><strong>{{habit.title}}</strong></th>
     <ng-container *ngFor="let cat of CategoryList">
         
@@ -14,12 +14,45 @@
     <tr>{{habit.startDate | date : 'shortDate' }}</tr>
     <tr>{{habit.endDate   | date : 'shortDate' }}</tr>
     <tr>{{habit.description}}</tr>
+    <!-- might hide the checkbox once it is clicked and have it show back up in editMode -->
+    <tr>Complete <input type="checkbox"> </tr>
+
+    <tr><Button (click)="editHabit()">Edit</Button>
+        <Button (click)="deleteHabit()">Delete</Button></tr>
+   
+
+
 </table>
 
 
-<!-- <strong>{{habit.title}}</strong><br />
-{{habit.category_id}} <br/>
+<!----------------EDIT FORM-------------------->
+
+<table *ngIf="editMode">
+    <th><input type="text" [value]="habit.title" [(ngModel)]="editTitle"></th>
+    <!-- Do a dropdown for the categories -->
+    <tr><select [(ngModel)]="editCategory_id" >
+        <option *ngFor="let cat of CategoryList" [value]="cat.id">{{cat.type}}</option>
+    </select></tr>
+ 
+    <tr><input type="text" [value]="habit.amount" [(ngModel)]="editAmount"> </tr>
+    <!-- date isn't pre-populating with ngModel -->
+    <tr><input type="date" [value]="prePopStartDate" [(ngModel)]="editStartDate"></tr>
+    <tr><input type="date" [value]="prePopEndDate" [(ngModel)]="editEndDate"></tr>
+    <tr><input type="text" [value]="habit.description" [(ngModel)]="editDescription"></tr>
+    <!-- might hide the checkbox once it is clicked and have it show back up in editMode -->
+
+    <tr><Button (click)="saveEdit()">Save</Button>
+        <Button (click)="cancelEdit()">Cancel</Button></tr>
+   
+</table>
+<button (click)="updateTracker()">Complete</button>
+
+{{habit.id}}<br />
+
+
+<!-- {{habit.category_id}} <br/>
 {{habit.amount}} <br />
 {{habit.startDate | date : 'shortDate' }} <br />
 {{habit.endDate   | date : 'shortDate' }} <br />
-{{habit.description}} <br /> -->
+{{habit.description}} <br />  -->
+
