@@ -49,14 +49,14 @@ insert into category (type) values ('Social');
 insert into category (type) values ('Nutrition');
 
 
-insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (1,"fitness journey", 2,"Twice a day", "2022-11-29", "2022-12-31", "I'm overweight man"); 
-insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (2,"Meditate", 2, "Three times a day", "2022-11-29", "2022-12-31", "Meditate"); 
-insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (3,"Walking", 3, "Three times a day",  "2022-11-29", "2022-12-31", "Mental Clarity"); 
+insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (1,"fitness journey", 2,"Twice a day", "2021-11-29", "2022-12-31", "I'm overweight man"); 
+insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (2,"Meditate", 2, "Three times a day", "2020-11-29", "2022-12-31", "Meditate"); 
+insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (3,"Walking", 3, "Three times a day",  "2021-11-29", "2022-12-31", "Mental Clarity"); 
 
-insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (1,"Balance Budget", 2,"Twice a day", "2022-11-29", "2022-12-31", "I'm broke"); 
-insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (1,"Drink Water", 2,"3 Liters a day", "2022-11-29", "2022-12-31", "So Dry!"); 
+insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (1,"Balance Budget", 2,"Twice a day", "2021-01-29", "2022-12-31", "I'm broke"); 
+insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (1,"Drink Water", 2,"3 Liters a day", "2020-11-29", "2022-12-31", "So Dry!"); 
 
-insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (1,"Sleep 8 hours", 2, "Every day", "2022-11-29", "2022-12-31", "So tired"); 
+insert into habit (users_id,title, category_id,amount, startDate, endDate, description) values (1,"Sleep 8 hours", 2, "Every day", "2020-1-01", "2022-12-25", "So tired"); 
 
 
 insert into tracker (habit_id, date) values (1,"2022-12-1");
