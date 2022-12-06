@@ -51,7 +51,10 @@ export class HomePageComponent implements OnInit {
     if (this.loginError == false){
       localStorage.setItem('userId', this.selectedId.toString());
       this.UserSrv.userId = this.selectedId;
-      this.router.navigate(['habits']);
+      this.router.navigate(['habits'])
+      .then(() => {
+        window.location.reload();
+      });
     }
     else {
       this.router.navigate(['']);
