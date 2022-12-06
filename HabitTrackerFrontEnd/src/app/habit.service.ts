@@ -18,7 +18,7 @@ export class HabitService {
   }
 
   deleteHabit(cb: any, id: any){
-    this.http.get<Habit>(`https://localhost:7198/habit/${id}`).subscribe(cb);
+    this.http.delete(`https://localhost:7198/habit/${id}`).subscribe(cb);
   }
 
   updateHabit(cb:any, hab: Habit){

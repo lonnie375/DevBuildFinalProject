@@ -1,0 +1,18 @@
+<div class="main">
+	<h3>Edit Habit</h3>
+	Title: <input type="text" [(ngModel)]="updatedHabit.title" /><br />
+	Category:
+	
+    <tr><select [(ngModel)]="updatedHabit.category_id" >
+        <option *ngFor="let cat of CategoryList" [value]="cat.id">{{cat.type}}</option>
+    </select></tr>
+
+
+
+	 <br />
+	Amount: <input type="text" [(ngModel)]="updatedHabit.amount"><br />
+	Start Date: <input type="date" [(ngModel)]="updatedHabit.startDate"><br />
+	End Date: <input type="date" [(ngModel)]="updatedHabit.endDate"><br />
+	
+	<button (click)="saveIt()">Save</button>
+</div>

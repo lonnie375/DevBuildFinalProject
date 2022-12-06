@@ -2,11 +2,11 @@
 
 
 <input type="text" placeholder="Title" [(ngModel)]="newHabit.title"><br>
-<select [(ngModel)]="newHabit.category_id" >
+<select placeholder="category_id" [(ngModel)]="newHabit.category_id" >
     <option *ngFor="let cat of TheCategory" [value]="cat.id">{{cat.type}}</option>
 </select><br>
 <input type="text" placeholder="Amount" [(ngModel)]="newHabit.amount"><br>
 <input type="date" placeholder="Start Date" [(ngModel)]="newHabit.startDate"><br>
-<input type="date" datetime="yyy-MM-dd" placeholder="End Date" [(ngModel)]="newHabit.endDate"><br>
+<input type="date" placeholder="End Date" [(ngModel)]="newHabit.endDate"><br>
 <input type="text" placeholder="Description" [(ngModel)]="newHabit.description"><br>
 <button (click)="saveHabit()" routerLink="/habits">Save</button> <button (click)="clear()">Clear</button><button routerLink="/habits">Cancel</button>
