@@ -6,7 +6,14 @@ import { Tracking } from '../tracking';
 import { TrackingService } from '../tracking.service';
 import { UserService } from '../user.service';
 import { formatDate } from '@angular/common';
-import { findIndex } from 'rxjs';
+
+// Font Awesome additions
+import { faCheckCircle} from '@fortawesome/free-regular-svg-icons';
+import { faCircleCheck} from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan} from '@fortawesome/free-regular-svg-icons';
+import { faEdit} from '@fortawesome/free-regular-svg-icons';
+import { faFloppyDisk} from '@fortawesome/free-regular-svg-icons';
+import { faXmarkCircle} from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-habit-detail',
@@ -15,23 +22,33 @@ import { findIndex } from 'rxjs';
 })
 export class HabitDetailComponent implements OnInit {
 
+
+  // Using FontAwesome 
+faCheckCircle = faCheckCircle;
+faTrashCan = faTrashCan;
+faEdit = faEdit;
+faFloppyDisk = faFloppyDisk;
+faXmarkCircle = faXmarkCircle;
+faCircleCheck = faCircleCheck
+
+
+
   CategoryList: Category[] = [];
   TrackerList: Tracking[] = [];
   
-
-
-
-
 
   // Edit habit form variables 
   editMode: boolean = false;
   editTitle: string = "";
   editCategory_id: number = 0;
   editAmount: string = ""; 
-  editStartDate: Date = new Date;
-  editEndDate: Date = new Date;
+  editStartDate: string= '';
+  editEndDate: string= '';
   editDescription: string = "";
-  editCompleteHabit: boolean = true;
+
+  theFoundId: number = 0;
+
+
 
   @Input() habit: Habit = {
       id: 0,
@@ -44,24 +61,11 @@ export class HabitDetailComponent implements OnInit {
       description: ""
   }
 
-    // Pre-Pop date value fix
-    prePopStartDate: string = '';
-    prePopEndDate: string = '';
+  // trying to get a boolean to control the checkmark icon on html page
+  // checkmarkStatus: boolean = this.checkMark(this.TrackerList, this.habit.id);
+  checkmarkStatus: boolean = false;
 
     
-//   editHabitObj: Habit = {
-//     id: 0,
-//     users_id: 0,
-//     title: "", 
-//     category_id: 0, 
-//     amount: "",
-//     startDate: new Date(), 
-//     endDate: new Date(), 
-//     description: ""
-// }
-
-
-
 
   @Output() update: EventEmitter<Habit> = new EventEmitter<Habit>();
   @Output() delete: EventEmitter<number> = new EventEmitter<number>();
@@ -69,12 +73,13 @@ export class HabitDetailComponent implements OnInit {
 
   constructor(private catSrv: CategoryService, private UserSrv: UserService, private TrackSrv: TrackingService) {
 
-
    }
 
   ngOnInit(): void {
     this.refresh();
   }
+
+ 
 
   refresh() {
     this.catSrv.getAllCategory(
@@ -86,34 +91,47 @@ export class HabitDetailComponent implements OnInit {
     this.TrackSrv.getAllTracking(
       (result: Tracking []) => {
         this.TrackerList = result;
+        this.checkMark(this.TrackerList, this.habit.id);
       }
     );
   }
 
-  editHabit(){
-    // Pre-Pop date value fix
-    this.prePopStartDate = this.habit.startDate.toString().substring(0,10);
+  checkMark(theList: Tracking[], habitId: number) {
+    let todaysDate: string = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    let theMark: boolean = false;
 
-    this.prePopEndDate = this.habit.endDate.toString().substring(0,10);
-    
+    for (let index = 0; index < theList.length; index++) {
+      if (theList[index].habit_id == habitId){
+          if ( theList[index].date.toString().substring(0,10) == todaysDate.toString().substring(0,10))
+          {
+          theMark = true;
+        }else { 
+          theMark = false;
+        }
+      }
+    }
+    console.log(theMark);
+  this.checkmarkStatus = theMark;
+  
+}
+
+
+
+  editHabit(){
     this.editTitle = this.habit.title;
     this.editCategory_id = this.habit.category_id;
     this.editAmount = this.habit.amount; 
+    this.editStartDate =  this.habit.startDate.toString().substring(0,10);
+    this.editEndDate = this.habit.endDate.toString().substring(0,10);
     this.editDescription = this.habit.description;
-    // this.editCompleteHabit = true;
-    
+
     this.editMode = true
-
-
   }
 
  deleteHabit(){
-  // if(confirm("Are you sure you want to do that?")){
-    
-  //   this.delete.emit(this.habit.id);
-  // }
-
-  this.delete.emit(this.habit.id);
+  if(confirm("Are you sure you want to do that?")){
+    this.delete.emit(this.habit.id);
+  }
  }
 
  cancelEdit(){
@@ -122,11 +140,9 @@ export class HabitDetailComponent implements OnInit {
   this.editTitle = "";
   this.editCategory_id = 0;
   this.editAmount = ""; 
-
-  this.editStartDate = new Date();
-  this.editEndDate = new Date();
+  this.editStartDate = '';
+  this.editEndDate = '';
   this.editDescription = "";
-  this.editCompleteHabit = true;
 }
 
 saveEdit(){
@@ -136,16 +152,12 @@ let changedHabit: Habit = {
   title: this.editTitle, 
   category_id: this.editCategory_id, 
   amount: this.editAmount,
-  startDate: this.editStartDate, 
-  endDate: this.editEndDate, 
+  startDate: new Date(this.editStartDate), // this was our fix for pre-populating this into the date input box. CASTING so it can go back to the SQL database
+  endDate: new Date(this.editEndDate), 
   description: this.editDescription
 }
-
-// this.editHabitObj.id = this.habit.id;
-// this.editHabitObj.users_id = this.habit.users_id
   this.update.emit(changedHabit);
-  //this.cancelEdit();
-  this.editMode = false;
+  this.cancelEdit();
 
 }
 
@@ -158,41 +170,41 @@ deleteTracker(id: number){
 
 
 updateTracker(){
-
  let newTracking = {
     id: 0,
     habit_id: this.habit.id,
     date: new Date
   }
 
-  let foundId = this.findId(this.TrackerList, this.habit.id)
+  this.theFoundId = this.findId(this.TrackerList, this.habit.id)
 
 // PART 2 
 // If a tracking result was found for todays date remove it from the DB 
 // Otherwise add a new tracking to the DB
 
-  if(foundId > 0) {
+  if(this.theFoundId > 0) {
     console.log('made it to if statement for the delete')
+    
     this.TrackSrv.deleteTracking(
-      
       () => {
-         this.refresh();
-         
+        this.refresh
       }, 
-      foundId);
+      this.theFoundId);
+      this.checkmarkStatus = false;
   }
-  else {
+  else if(this.theFoundId == null || this.theFoundId <= 0){
     console.log('about to add one tracker')
+    
     this.TrackSrv.addTracking(
       () => {
         this.refresh();
       }, newTracking
-    )
-
+    )                               
+    this.checkmarkStatus = true;
+    
   } 
-
+  window.location.reload(); // needed to reload the list because foundId was holding on to the last index after delete
 }
-
 
 
   findId(theList: Tracking[], habitId: number): number {

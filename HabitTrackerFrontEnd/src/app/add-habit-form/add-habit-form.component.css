@@ -1,3 +1,51 @@
 button {
     margin-right: 10px;
 }
+
+.container {
+    background-color: #a4b37b;
+    height: 94vh; 
+}
+
+body {
+    background-color: #285430;
+}
+
+* {
+    font-family: serif, sans-serif;
+}
+ /*
+    !important overrides the bootstrap styling
+ */
+.btn-primary {
+    background-color: #353b22 !important;
+    border-color: #A4b37b !important;
+}
+
+.btn-primary:hover {
+    background-color: #285430 !important;
+    border-color: #285430 !important;
+}
+
+.btn-primary:active {
+    background-color: #285430 !important;
+    border-color: #285430 !important; 
+    
+}
+
+.btn-primary:visited {
+    background-color: #285430 !important;
+    border-color: #285430 !important;
+}
+
+
+h2 {
+    font-family: 'Montserrat';
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+p {
+    font-family: 'Montserrat';
+    font-size: 25px;
+}
