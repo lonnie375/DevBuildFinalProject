@@ -118,6 +118,11 @@ getDaysSoFar(aHabit: Habit){
   return current;
 }
 
+getTrackbar(aHabit: Habit, aList: Trackingresult[]){
+ let width: number = this.getSuccessRate(aHabit, aList);
+ let outPut: string = width+"% " + "100% " ;
+ return outPut;
+}
 
 }
 
