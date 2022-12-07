@@ -2,57 +2,53 @@
 
 <table *ngIf="!editMode">
     <th><strong>{{habit.title}}</strong></th>
+
     <ng-container *ngFor="let cat of CategoryList">
-        
         <tr *ngIf="habit.category_id == cat.id">
             {{cat.type}}
         </tr>
-
     </ng-container>
  
     <tr>{{habit.amount}} </tr>
     <tr>{{habit.startDate | date : 'shortDate' }}</tr>
     <tr>{{habit.endDate   | date : 'shortDate' }}</tr>
     <tr>{{habit.description}}</tr>
-    <!-- might hide the checkbox once it is clicked and have it show back up in editMode -->
-    <tr>Complete <input type="checkbox"> </tr>
 
-    <tr><Button (click)="editHabit()">Edit</Button>
-        <Button (click)="deleteHabit()">Delete</Button></tr>
-   
+    <tr><Button (click)="editHabit()"><fa-icon [icon]="faEdit"></fa-icon></Button>
+        <Button (click)="deleteHabit()"><fa-icon [icon]="faTrashCan"></fa-icon></Button>
+        <!-- CheckMark Logic -->
+        <ng-container *ngIf="!checkmarkStatus">
+            <button (click)="updateTracker()" ><fa-icon [icon]="faCheckCircle"></fa-icon></button>
+        </ng-container>
+        <ng-container *ngIf="checkmarkStatus">
+            <button (click)="updateTracker()" ><fa-icon [icon]="faCircleCheck"></fa-icon></button>
+        </ng-container>
 
-
+    </tr>
 </table>
+
+{{habit.startDate}} <br />
+{{habit.endDate}}
 
 
 <!----------------EDIT FORM-------------------->
 
 <table *ngIf="editMode">
-    <th><input type="text" [value]="habit.title" [(ngModel)]="editTitle"></th>
-    <!-- Do a dropdown for the categories -->
+    <th><input type="text" [(ngModel)]="editTitle"></th>
+
     <tr><select [(ngModel)]="editCategory_id" >
         <option *ngFor="let cat of CategoryList" [value]="cat.id">{{cat.type}}</option>
     </select></tr>
- 
-    <tr><input type="text" [value]="habit.amount" [(ngModel)]="editAmount"> </tr>
-    <!-- date isn't pre-populating with ngModel -->
-    <tr><input type="date" [value]="prePopStartDate" [(ngModel)]="editStartDate"></tr>
-    <tr><input type="date" [value]="prePopEndDate" [(ngModel)]="editEndDate"></tr>
-    <tr><input type="text" [value]="habit.description" [(ngModel)]="editDescription"></tr>
-    <!-- might hide the checkbox once it is clicked and have it show back up in editMode -->
 
-    <tr><Button (click)="saveEdit()">Save</Button>
-        <Button (click)="cancelEdit()">Cancel</Button></tr>
+    <tr><input type="text" [(ngModel)]="editAmount"> </tr>
+    <tr><input type="date" [(ngModel)]='editStartDate'  ></tr>
+    <tr><input type="date" [(ngModel)]='editEndDate'></tr>
+    <tr><input type="text" [(ngModel)]="editDescription"></tr>
+
+    <tr><Button (click)="saveEdit()"><fa-icon [icon]="faFloppyDisk"></fa-icon></Button>
+        <Button (click)="cancelEdit()"><fa-icon [icon]="faXmarkCircle"></fa-icon></Button></tr>
    
 </table>
-<button (click)="updateTracker()">Complete</button>
+<br />
 
-{{habit.id}}<br />
-
-
-<!-- {{habit.category_id}} <br/>
-{{habit.amount}} <br />
-{{habit.startDate | date : 'shortDate' }} <br />
-{{habit.endDate   | date : 'shortDate' }} <br />
-{{habit.description}} <br />  -->
 
