@@ -1,0 +1,10 @@
+.calendar-bar{
+    margin: 2%;
+    border: 2px solid #285430
+}
+
+.completed{
+    background-color: #285430;
+    border-radius: 50%;
+    color:white
+}
