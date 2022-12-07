@@ -57,9 +57,18 @@ insert into habit (users_id,title, category_id,amount, startDate, endDate, descr
 insert into tracker (habit_id, date) values (1,"2022-12-1");
 insert into tracker (habit_id, date) values (1,"2022-12-2");
 insert into tracker (habit_id, date) values (1,"2022-12-3");
-insert into tracker (habit_id, date) values (2,"2022-12-19");
-
-select * from tracker;
-insert into tracker (habit_id, date) values (4,"2022-12-19");
-insert into tracker (habit_id, date) values (5,"2022-11-19");
-insert into tracker (habit_id, date) values (5,"2022-12-19");
+insert into tracker (habit_id, date) values (1,"2022-12-5");
+insert into tracker (habit_id, date) values (1,"2022-12-6");
+insert into tracker (habit_id, date) values (2,"2022-12-1");
+insert into tracker (habit_id, date) values (2,"2022-12-3");
+insert into tracker (habit_id, date) values (2,"2022-12-4");
+insert into tracker (habit_id, date) values (2,"2022-12-6");
+insert into tracker (habit_id, date) values (3,"2022-12-2");
+insert into tracker (habit_id, date) values (3,"2022-12-5");
+insert into tracker (habit_id, date) values (4,"2022-12-5");
+insert into tracker (habit_id, date) values (5,"2022-12-1");
+insert into tracker (habit_id, date) values (5,"2022-12-3");
+insert into tracker (habit_id, date) values (5,"2022-12-4");
+insert into tracker (habit_id, date) values (5,"2022-12-5");
+insert into tracker (habit_id, date) values (5,"2022-12-6");
+insert into tracker (habit_id, date) values (6,"2022-12-6");

@@ -49,6 +49,8 @@
         <Button (click)="cancelEdit()"><fa-icon [icon]="faXmarkCircle"></fa-icon></Button></tr>
    
 </table>
-<br />
+<button (click)="updateTracker()">Complete</button>
+
+<app-habit-calendar-bar [habit]="habit"></app-habit-calendar-bar>
 
 
