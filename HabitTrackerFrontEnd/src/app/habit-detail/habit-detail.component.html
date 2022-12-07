@@ -1,14 +1,49 @@
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  </head>
+
+
 <!-- Was thinking a table might be easier to style in the future? Commented out unformatted text below -->
-
+<body>
 <table *ngIf="!editMode">
-    <th><strong>{{habit.title}}</strong></th>
+    <tr>
+        <th><strong>{{habit.title}}</strong></th> 
+        <th rowspan="0">
+            <div class="center">
+            <ng-container *ngIf="!checkmarkStatus">
+                <button (click)="updateTracker()" ><fa-icon [icon]="faCheckCircle" size="5x" ></fa-icon></button>
+            </ng-container>
+            <ng-container *ngIf="checkmarkStatus">
+                <button (click)="updateTracker()" ><fa-icon [icon]="faCircleCheck" size="5x"></fa-icon></button>
+            </ng-container>
+        </div>
+        </th>
+    </tr>
+    
+    <tr>
+            <!-- <td *ngFor="let cat of CategoryList">
+                
+                <ng-container *ngIf="habit.category_id == cat.id">
+                    {{cat.type}}
+                </ng-container> -->
+            
+                <ng-container *ngFor="let cat of CategoryList">
 
-    <ng-container *ngFor="let cat of CategoryList">
-        <tr *ngIf="habit.category_id == cat.id">
-            {{cat.type}}
-        </tr>
-    </ng-container>
- 
+                    <ng-container *ngIf="habit.category_id == cat.id">
+                        {{cat.type}}
+                    </ng-container>
+                   
+                </ng-container>
+
+            
+            
+    </tr>
+
     <tr>{{habit.amount}} </tr>
     <tr>{{habit.startDate | date : 'shortDate' }}</tr>
     <tr>{{habit.endDate   | date : 'shortDate' }}</tr>
@@ -17,18 +52,15 @@
     <tr><Button (click)="editHabit()"><fa-icon [icon]="faEdit"></fa-icon></Button>
         <Button (click)="deleteHabit()"><fa-icon [icon]="faTrashCan"></fa-icon></Button>
         <!-- CheckMark Logic -->
-        <ng-container *ngIf="!checkmarkStatus">
+        <!-- <ng-container *ngIf="!checkmarkStatus">
             <button (click)="updateTracker()" ><fa-icon [icon]="faCheckCircle"></fa-icon></button>
         </ng-container>
         <ng-container *ngIf="checkmarkStatus">
             <button (click)="updateTracker()" ><fa-icon [icon]="faCircleCheck"></fa-icon></button>
-        </ng-container>
+        </ng-container> -->
 
     </tr>
 </table>
-
-{{habit.startDate}} <br />
-{{habit.endDate}}
 
 
 <!----------------EDIT FORM-------------------->
@@ -49,6 +81,7 @@
         <Button (click)="cancelEdit()"><fa-icon [icon]="faXmarkCircle"></fa-icon></Button></tr>
    
 </table>
-<br />
 
 
+
+</body>

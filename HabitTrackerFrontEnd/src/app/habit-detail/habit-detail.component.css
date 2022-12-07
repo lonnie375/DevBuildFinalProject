@@ -1,0 +1,57 @@
+button {
+    margin-right: 10px;
+}
+
+.container {
+    background-color: #a4b37b;
+    height: 94vh; 
+}
+
+body {
+    background-color: #285430;
+}
+
+* {
+    font-family: serif, sans-serif;
+}
+ /*
+    !important overrides the bootstrap styling
+ */
+
+
+
+h2 {
+    font-family: 'Montserrat';
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+p {
+    font-family: 'Montserrat';
+    font-size: 25px;
+}
+
+tr {
+    border-bottom: 1px solid rgb(1, 56, 20);
+    
+  }
+
+th {
+    border-left: 1px solid rgb(1, 56, 20);
+    
+  }
+
+  table {
+    border: 2px solid;
+    background-color: #a4b37b;
+    width: 70%;
+  }
+
+  button {
+    border: none;
+    background-Color: transparent;
+  }
+
+  .center {
+    align-items: center;
+  }
