@@ -14,9 +14,8 @@ import { TrackerListComponent } from './tracker-list/tracker-list.component';
 import { TrackerDetailComponent } from './tracker-detail/tracker-detail.component';
 import { AddHabitFormComponent } from './add-habit-form/add-habit-form.component';
 import { NavComponent } from './nav/nav.component';
-import { EditPageComponent } from './edit-page/edit-page.component';
 import { HabitCalendarBarComponent } from './habit-calendar-bar/habit-calendar-bar.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
