@@ -1,0 +1,44 @@
+.backgroundedit {
+    background-color: #285430;
+}
+
+.container {
+    background-color: #A4B37B;
+    height: 94vh; 
+    max-height: 100vh;
+    font-family:  Serif, Sans-serif;
+}
+.content {
+    text-align: center;
+    padding-top: 25%; 
+}
+
+button {
+    background-color: #E5D9B6;
+    margin-left: 15px; 
+    margin-bottom: 5px; 
+    font-weight: bolder;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #285430;
+}
+
+
+.bar {
+    width: 50%;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 75px;
+}
+h2 {
+    font-size: 40px; 
+}
+
+p {
+    font-size: 20px; 
+}
+
