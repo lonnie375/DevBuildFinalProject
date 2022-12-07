@@ -1,0 +1,19 @@
+
+<div id="calendar-list" class="row text-center calendar-bar">
+
+    <h4 class="col-12 ">Week Log</h4>
+
+    <!--Run a for loop over the last 7 days-->
+    <div *ngFor="let log of WeekLog" class="col-2 d-flex justify-content-center text-center">
+        <!--Reflect a box for the past 7 days-->
+        <!--Assign a class of complete or not complete for the specified date-->
+
+        <p *ngIf="log.logged" class="col-2 d-flex justify-content-center text-center completed">
+            {{log.day.toString().substring(8,10)}}
+        </p> 
+        <p *ngIf="!log.logged" class="col-2 d-flex justify-content-center text-center">
+            {{log.day.toString().substring(8,10)}}
+        </p>    
+
+    </div>
+</div>
