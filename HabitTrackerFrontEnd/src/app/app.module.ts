@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'; 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,14 +31,14 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     TrackerDetailComponent,
     AddHabitFormComponent,
     NavComponent,
-    HabitCalendarBarComponent,
+    AddHabitFormComponent,
+    HabitCalendarBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule, 
-    HttpClientModule, 
-    FontAwesomeModule
+    HttpClientModule, FontAwesomeModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
