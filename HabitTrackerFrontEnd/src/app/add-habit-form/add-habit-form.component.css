@@ -1,10 +1,12 @@
-button {
-    margin-right: 10px;
-}
-
 .container {
     background-color: #a4b37b;
-    height: 94vh; 
+    margin: 10vh 0;
+    padding: 5vh ;
+}
+/* 
+
+button {
+    margin-right: 10px;
 }
 
 body {
@@ -13,7 +15,7 @@ body {
 
 * {
     font-family: serif, sans-serif;
-}
+} */
  /*
     !important overrides the bootstrap styling
  */
@@ -40,12 +42,11 @@ body {
 
 
 h2 {
-    font-family: 'Montserrat';
     font-weight: bolder;
     font-size: 50px;
 }
 
 p {
-    font-family: 'Montserrat';
+
     font-size: 25px;
 }
