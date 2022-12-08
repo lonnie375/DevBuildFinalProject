@@ -1,5 +1,5 @@
 .card{
-    width:100%;
+    width:inherit;
     margin-bottom: 1rem;
 }
 
@@ -7,7 +7,7 @@
     border-color: black; 
     border-width: 1px; 
     border-style: solid; 
-    width:85%;  
+    width:100%;  
     background-color: lightgray; 
     z-index: 0;
 }
