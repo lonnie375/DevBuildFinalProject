@@ -1,33 +1,24 @@
-
-
 .container {
-    background-color: #a4b37b;
-    height: 94vh; 
+    background-color:  var(--color-1);
+    margin-top: 10vh ;
+    margin-bottom: 10vh ;
+    padding: 10vh;
+    border-radius: 1%;
 }
 
-body {
-    background-color:#285430
+@media only screen and (max-width: 1200px){
+    .container {
+        width: 90%; 
+        margin: 1vh 2% ;
+        padding: 1vh;
+    }
 }
 
-* {
-    font-family: serif, sans-serif;
-}
- /*
-    !important overrides the bootstrap styling
- */
 
-
-
-h2 {
-    font-family: 'Montserrat';
-    font-weight: bolder;
-    font-size: 50px;
-    justify-content: center;
-    
-}
-
-p {
-    font-family: 'Montserrat';
-    font-size: 25px;
-}
-
+ @media only screen and (max-width: 1200px){
+    .container {
+        width: 90%; 
+        margin: 1vh 2% ;
+        padding: 1vh;
+    }
+} 

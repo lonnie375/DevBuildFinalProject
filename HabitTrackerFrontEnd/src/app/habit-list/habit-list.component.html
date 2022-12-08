@@ -1,5 +1,9 @@
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <ng-container class="col-10" *ngFor="let habit of TheList">
+            <app-habit-detail [habit]="habit" (update)="updateHabit($event)"
+            (delete)='deleteHabit($event)'></app-habit-detail><br />
+        </ng-container>
+    </div>
+</div>
 
-<ng-container *ngFor="let habit of TheList">
-    <app-habit-detail [habit]="habit" (update)="updateHabit($event)"
-    (delete)='deleteHabit($event)'></app-habit-detail><br />
-</ng-container>

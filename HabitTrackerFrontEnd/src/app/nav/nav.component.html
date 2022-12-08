@@ -1,6 +1,12 @@
 <nav class="navbar navbar-expand-lg ">  
-    <a class="nav-item nav-link" href="/">Habit Tracker</a>  
-    <button *ngIf="userId !== 0" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">    <span class="navbar-toggler-icon"></span>  </button>  
+    <ng-container *ngIf="userId === 0">
+        <a class="nav-item nav-link" href="/">Habit Tracker</a>
+    </ng-container>
+ <ng-container *ngIf="userId !== 0">
+        <a class="nav-item nav-link" href="/habits">Habit Tracker</a>    
+ </ng-container>
+    
+    <button *ngIf="userId !== 0" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">  <fa-icon [icon]="faBars" ></fa-icon></button>  
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">    
         <div class="navbar-nav">          
             <ng-container *ngIf="userId !== 0">
@@ -12,3 +18,4 @@
         </div>
     </div>
 </nav>
+

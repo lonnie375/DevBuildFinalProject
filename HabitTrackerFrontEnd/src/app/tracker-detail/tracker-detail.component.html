@@ -1,113 +1,67 @@
-<div class="card">
+
+<div class="card ">
 
     <div class="card-body">
         <div class="text-center">
-            <h3>
+            <h4>
                 {{ trackedHabit.title.toUpperCase() }}
-            </h3>
-            <br />
+            </h4>
+
         </div>
-
-
-
-
 
         <!-- Calculate Todays Date Then Make 6 days + Todays Day -->
 
-
-
-
-
-        <div class="full-card" style="margin-left:7.5%;">
-
+        <div class="full-card" >
 
             <div class="Track-Time">
 
+                <div class="TrackBar-Border ">
 
-                <div class="TrackBar-Border"
-                    style="border-color: black; border-width: 1px; border-style: solid; width:85%;  background-color:  lightgray; z-index: 0;">
+                    <div class="prog-report">
 
+                        <span class="Track-Bar-Text"> {{ getTimeLapse(trackedHabit) }}% Complete. </span>
 
-
-
-
-                    <div class="prog-report" style=" z-index:2; display: inline-block; position: absolute;">
-
-                        <span class="Track-Bar-Text"> {{ getTimeLapse(trackedHabit) }}% Complete.
-
-
-                        </span>
-
-                        <span class="Track-Bar-date"> Ending in {{ getDaysLeft(trackedHabit)}} days.
-
-
-
-                        </span>
-
+                        <span class="Track-Bar-date"> Ending in {{ getDaysLeft(trackedHabit)}} days. </span>
 
                     </div>
 
 
-                    <div class="TrackBar Progress"
-                        style="border:none;  background-image: linear-gradient(#5F8D4E,#8bc575, #5F8D4E, #285430); z-index: 0; height:1.75em; "
+                    <div class="TrackBar-Progress"
                         [ngStyle]="{'width.%': getTimeLapse(trackedHabit) }">
 
-
                         <!--blank-->
-
-
 
                     </div>
 
 
                 </div>
-
-
 
             </div>
 
 
             <div class="Track-Complete">
 
-                <div class="TrackBar-Border"
-                    style="border-color: black; border-width: 1px; border-style: solid; width:85%;  background-color: lightgray; z-index: 0;">
+                <div class="TrackBar-Border">
 
-
-                    <div class="prog-report" style="z-index:2; display: inline-block; position: absolute;">
+                    <div class="prog-report">
                         {{getSuccessDays(currList)}} out of {{getDaysSoFar(trackedHabit)}} days recorded wins!
-
-
                     </div>
 
 
-                    <div class="TrackBar Progress"
-                        style=" background-image: linear-gradient(#5F8D4E,#8bc575, #5F8D4E, #285430); z-index: 0; height:1.75em; "
+                    <div class="TrackBar-Progress"
                         [ngStyle]="{'width.%': getSuccessRate(trackedHabit, currList) }">
 
-
                     </div>
 
-
-
-
-
                     <!-- {{getSuccessRate(trackedHabit, currList)}}% Winrate. -->
-
-
-
 
                     <!-- </div> -->
 
                 </div>
-                <br />
-
-
-
 
             </div>
 
         </div>
-
 
     </div>
 

@@ -1,34 +1,24 @@
 nav {
-    background-color: #E5D9B6;   
-    font-family: serif, sans-serif;
+    background-color: var(--color-3);   
     font-size: 18px;
     
 }
 
 a:link {
-    color:  #3e5536; 
+    color:  var(--color-5); 
 }
 
 a:visited {
-    color: #3e5536;
+    color:  var(--color-5);
     font-weight: 900;
 }
 
 a:hover {
-    background-color: #d8b538;
+    background-color: white;
     font-weight: 900;
     border-radius: 10px;
 }
 
 a:active {
     color: rgb(0, 12, 5); 
-}
-
-.material-symbols-outlined {
-    background-color:#3e5536;
-
-}
-
-.navbar-toggler {
-    background-color:#3e5536;
 }
