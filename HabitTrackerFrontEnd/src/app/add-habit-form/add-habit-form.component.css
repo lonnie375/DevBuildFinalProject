@@ -3,19 +3,7 @@
     margin: 10vh 0;
     padding: 5vh ;
 }
-/* 
 
-button {
-    margin-right: 10px;
-}
-
-body {
-    background-color: #285430;
-}
-
-* {
-    font-family: serif, sans-serif;
-} */
  /*
     !important overrides the bootstrap styling
  */
@@ -41,3 +29,11 @@ body {
 }
 
 
+
+
+
+.alert {
+    color: red;
+    font-weight: 700;
+    
+}
