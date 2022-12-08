@@ -1,7 +1,11 @@
-<div *ngFor="let thisHab of HabIDList">
-    
-    <app-tracker-detail [trackedHabit]="thisHab"> </app-tracker-detail>
- 
+<div class="container d-flex justify-content-center">
 
+    <div class="row">
 
+        <div class="col-12" *ngFor="let thisHab of HabIDList">     
+
+        <app-tracker-detail [trackedHabit]="thisHab"> </app-tracker-detail>
+
+        </div>
+    </div>
 </div>

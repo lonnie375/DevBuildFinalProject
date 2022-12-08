@@ -14,6 +14,7 @@ import { faTrashCan} from '@fortawesome/free-regular-svg-icons';
 import { faEdit} from '@fortawesome/free-regular-svg-icons';
 import { faFloppyDisk} from '@fortawesome/free-regular-svg-icons';
 import { faXmarkCircle} from '@fortawesome/free-regular-svg-icons';
+import { faCaretSquareDown, faCaretSquareUp} from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-habit-detail',
@@ -30,6 +31,8 @@ faEdit = faEdit;
 faFloppyDisk = faFloppyDisk;
 faXmarkCircle = faXmarkCircle;
 faCircleCheck = faCircleCheck
+faCaretSquareDown = faCaretSquareDown;
+faCaretSquareUp = faCaretSquareUp;
 
 
 
@@ -48,7 +51,7 @@ faCircleCheck = faCircleCheck
 
   theFoundId: number = 0;
 
-
+  detailsVisible: boolean = false;
 
   @Input() habit: Habit = {
       id: 0,
@@ -115,7 +118,14 @@ faCircleCheck = faCircleCheck
   
 }
 
-
+  viewDetails(){
+    if (this.detailsVisible == true){
+      this.detailsVisible = false;
+    }
+    else{
+      this.detailsVisible = true;
+    }
+  }
 
   editHabit(){
     this.editTitle = this.habit.title;

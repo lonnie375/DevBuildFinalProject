@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 
+// Font Awesome additions
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -8,9 +11,8 @@ import { UserService } from '../user.service';
 })
 export class NavComponent implements OnInit {
 
-    //userString: any = localStorage.getItem('userId');
-    
-    // userId = parseInt(this.userString);
+  // Using FontAwesome 
+  faBars = faBars;
 
     userId:number = 0;
 

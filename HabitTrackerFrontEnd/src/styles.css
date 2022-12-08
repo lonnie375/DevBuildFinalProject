@@ -1,19 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --color-1: #A4B37B;
+    --color-2: #285430;
+    --color-3: #E5D9B6;
+    --color-4: #5F8D4E;
+    --color-5: #3e5536;
+  }
+
 * {
     font-family: serif, sans-serif;
     font-family: 'Montserrat';
 }
 
 body {
-    background-color: #285430;
+    background-color: var(--color-2);
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: bolder;
-    font-size: 10vh;
 }
 
+p{
+    font-weight: lighter;
+}
 
+/* Media Query templates*/
 @media only screen and (max-width: 1200px){
     /*Tablets [601px -> 1200px]*/
 }
