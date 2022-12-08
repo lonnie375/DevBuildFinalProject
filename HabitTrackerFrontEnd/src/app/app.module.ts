@@ -14,7 +14,8 @@ import { TrackerListComponent } from './tracker-list/tracker-list.component';
 import { TrackerDetailComponent } from './tracker-detail/tracker-detail.component';
 import { AddHabitFormComponent } from './add-habit-form/add-habit-form.component';
 import { NavComponent } from './nav/nav.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HabitCalendarBarComponent } from './habit-calendar-bar/habit-calendar-bar.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -30,16 +31,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TrackerDetailComponent,
     AddHabitFormComponent,
     NavComponent,
-    AddHabitFormComponent
-    
+    AddHabitFormComponent,
+    HabitCalendarBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule, 
-    HttpClientModule, 
-    FontAwesomeModule, 
-    ReactiveFormsModule
+    HttpClientModule, FontAwesomeModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

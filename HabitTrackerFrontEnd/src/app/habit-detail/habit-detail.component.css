@@ -1,0 +1,76 @@
+button {
+    margin-right: 10px;
+}
+
+.container {
+    background-color: #a4b37b;
+    height: auto; 
+    width: 25%;
+    border: 5px solid;
+    margin-left: 1%;
+    
+}
+
+body {
+    background-color: #285430;
+}
+
+* {
+    font-family: 'Montserrat';
+}
+ /*
+    !important overrides the bootstrap styling
+ */
+
+
+
+h3 {
+    font-family: 'Montserrat';
+    font-weight: bolder;
+    font-size: 35px;
+}
+
+p {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    background-color: #E5D9B6;
+    border-radius: 5px;
+    border: 2px solid
+}
+
+tr {
+    border-bottom: 1px solid rgb(1, 56, 20);
+    
+  }
+
+th {
+    border-left: 1px solid rgb(1, 56, 20);
+    
+  }
+
+  table {
+    border: 2px solid;
+    background-color: #a4b37b;
+
+  }
+
+  button {
+    border: none;
+    background-Color: transparent;
+  }
+
+  col-3 {
+    align-items: flex-end;
+  }
+
+
+
+  .detail {
+    background-color: #E5D9B6;
+    margin: 2%;
+    padding: 2%;
+}
+
+.habitCards {
+
+}
