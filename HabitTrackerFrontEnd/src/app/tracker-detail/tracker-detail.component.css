@@ -1,68 +1,42 @@
-button {
-    margin-right: 10px;
-}
-
-.container {
-    background-color: #a4b37b;
-    height: 100%; 
-    border: none;
-}
-
 .card{
-    width:100%;
+    width:inherit;
     margin-bottom: 1rem;
-    
-
 }
 
-.card-body{
-    background-color: white;
-    border: none;
-} 
-body {
-    background-color: #285430;
+.TrackBar-Border{
+    border-color: black; 
+    border-width: 1px; 
+    border-style: solid; 
+    width:100%;  
+    background-color: lightgray; 
+    z-index: 0;
 }
 
-* {
-    font-family: serif, sans-serif;
-}
- /*
-    !important overrides the bootstrap styling
- */
-.btn-primary {
-    background-color: #353b22 !important;
-    border-color: #A4b37b !important;
+.prog-report{
+    z-index:2; 
+    display: inline-block; 
+    position: absolute;
 }
 
-.btn-primary:hover {
-    background-color: #285430 !important;
-    border-color: #285430 !important;
+.TrackBar-Progress{
+    border:none;  
+    background-image: linear-gradient(#5F8D4E,#8bc575, #5F8D4E, #285430); 
+    z-index: 0; 
+    height:1.75em; 
 }
 
-.btn-primary:active {
-    background-color: #285430 !important;
-    border-color: #285430 !important; 
-    
+/* .Track-Bar-Text {
+    display: none;
 }
 
-.btn-primary:visited {
-    background-color: #285430 !important;
-    border-color: #285430 !important;
+.Track-Bar-date {
+    display: none;
+} */
+
+/* Media Query templates*/
+@media only screen and (max-width: 1000px){
+    /*Tablets [601px -> 1200px]*/
+    .prog-report{
+        position: inherit;
+    }
 }
-
-
-h2 {
-    font-family: 'Montserrat';
-    font-weight: bolder;
-    font-size: 50px;
-}
-
-p {
-    font-family: 'Montserrat';
-    font-size: 25px;
-}
-
-.full-card{
-    border: none;
-}
-

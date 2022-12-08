@@ -1,20 +1,14 @@
-.backgroundedit {
-    background-color: #285430;
-}
-
 .container {
-    background-color: #A4B37B;
-    height: 94vh; 
-    max-height: 100vh;
-    font-family:  Serif, Sans-serif;
-}
-.content {
-    text-align: center;
-    padding-top: 25%; 
+    background-color: var(--color-1);
+    height: 50vh; 
+    width: 50%; 
+    margin: 10vh 25% ;
+    padding: 10vh;
+    border-radius: 1%;
 }
 
 button {
-    background-color: #E5D9B6;
+    background-color: var(--color-3);
     margin-left: 15px; 
     margin-bottom: 5px; 
     font-weight: bolder;
@@ -22,23 +16,19 @@ button {
 }
 
 button:hover {
-    background-color: #285430;
+    background-color: var(--color-2);
 }
-
 
 .bar {
     width: 50%;
     border-radius: 10px;
 }
 
-h1 {
-    font-size: 75px;
-}
-h2 {
-    font-size: 40px; 
-}
-
-p {
-    font-size: 20px; 
+ @media only screen and (max-width: 1200px){
+    .container {
+        width: 90%; 
+        margin: 1vh 2% ;
+        padding: 1vh;
+    }
 }
 

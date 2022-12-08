@@ -1,76 +1,26 @@
-button {
-    margin-right: 10px;
-}
-
 .container {
-    background-color: #a4b37b;
-    height: auto; 
-    width: 25%;
+    background-color:  var(--color-3);
+    padding-top: 1%;
     border: 5px solid;
     margin-left: 1%;
     
 }
 
-body {
-    background-color: #285430;
+#check-box {
+  padding: 1%;
 }
 
-* {
-    font-family: 'Montserrat';
-}
- /*
-    !important overrides the bootstrap styling
- */
 
+@media only screen and (max-width: 1200px){
+  #check-box p{
+    display: none;
+  }
 
-
-h3 {
-    font-family: 'Montserrat';
-    font-weight: bolder;
-    font-size: 35px;
 }
 
-p {
-    font-family: 'Montserrat';
-    font-size: 15px;
-    background-color: #E5D9B6;
-    border-radius: 5px;
-    border: 2px solid
-}
-
-tr {
-    border-bottom: 1px solid rgb(1, 56, 20);
-    
+@media only screen and (max-width: 425px){
+	
+  #calendar-bar{
+    display: none;
   }
-
-th {
-    border-left: 1px solid rgb(1, 56, 20);
-    
-  }
-
-  table {
-    border: 2px solid;
-    background-color: #a4b37b;
-
-  }
-
-  button {
-    border: none;
-    background-Color: transparent;
-  }
-
-  col-3 {
-    align-items: flex-end;
-  }
-
-
-
-  .detail {
-    background-color: #E5D9B6;
-    margin: 2%;
-    padding: 2%;
-}
-
-.habitCards {
-
 }
