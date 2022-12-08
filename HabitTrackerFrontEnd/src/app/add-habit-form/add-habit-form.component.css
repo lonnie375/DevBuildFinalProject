@@ -1,35 +1,31 @@
-.container {
-    background-color: #a4b37b;
-    margin: 10vh 0;
-    padding: 5vh ;
+button{
+    width: 200px;
 }
+
 
  /*
     !important overrides the bootstrap styling
  */
 .btn-primary {
-    background-color: #353b22 !important;
-    border-color: #A4b37b !important;
+    background-color:  var(--color-5)!important;
+    border-color:  var(--color-1) !important;
 }
 
 .btn-primary:hover {
-    background-color: #285430 !important;
-    border-color: #285430 !important;
+    background-color:  var(--color-2)!important;
+    border-color:  var(--color-2) !important;
 }
 
 .btn-primary:active {
-    background-color: #285430 !important;
-    border-color: #285430 !important; 
+    background-color:  var(--color-2) !important;
+    border-color:  var(--color-2) !important; 
     
 }
 
 .btn-primary:visited {
-    background-color: #285430 !important;
-    border-color: #285430 !important;
+    background-color:  var(--color-2)!important;
+    border-color:  var(--color-2) !important;
 }
-
-
-
 
 
 .alert {
