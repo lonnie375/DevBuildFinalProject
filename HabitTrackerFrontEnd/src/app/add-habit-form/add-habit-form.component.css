@@ -49,3 +49,9 @@ p {
     font-family: 'Montserrat';
     font-size: 25px;
 }
+
+.alert {
+    color: red;
+    font-weight: 700;
+    
+}
