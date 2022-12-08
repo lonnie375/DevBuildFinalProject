@@ -1,6 +1,7 @@
 .calendar-bar{
     margin: 2%;
-    border: 2px solid #285430
+    border: 2px solid #285430;
+    background-color: white
 }
 
 .completed{

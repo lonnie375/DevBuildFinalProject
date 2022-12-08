@@ -8,81 +8,71 @@
   </head>
 
 
-<!-- Was thinking a table might be easier to style in the future? Commented out unformatted text below -->
-<body>
-<table *ngIf="!editMode">
-    <tr>
-        <th><strong>{{habit.title}}</strong></th> 
-        <th rowspan="0">
-            <div class="center">
-            <ng-container *ngIf="!checkmarkStatus">
-                <button (click)="updateTracker()" ><fa-icon [icon]="faCheckCircle" size="5x" ></fa-icon></button>
-            </ng-container>
-            <ng-container *ngIf="checkmarkStatus">
-                <button (click)="updateTracker()" ><fa-icon [icon]="faCircleCheck" size="5x"></fa-icon></button>
-            </ng-container>
-        </div>
-        </th>
-    </tr>
-    
-    <tr>
-            <!-- <td *ngFor="let cat of CategoryList">
-                
-                <ng-container *ngIf="habit.category_id == cat.id">
-                    {{cat.type}}
-                </ng-container> -->
-            
-                <ng-container *ngFor="let cat of CategoryList">
 
-                    <ng-container *ngIf="habit.category_id == cat.id">
-                        {{cat.type}}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <ng-container *ngIf="!editMode">
+                
+                    <h3><strong>{{habit.title}}</strong></h3> 
+                    
+                
+                    <ng-container *ngFor="let cat of CategoryList">
+
+                        <ng-container *ngIf="habit.category_id == cat.id">
+                        <p>{{cat.type}}</p> 
+                        </ng-container>
+                    
                     </ng-container>
-                   
+                
+                <p>{{habit.amount}} </p>
+                <p>{{habit.startDate | date : 'shortDate' }}</p>
+                <p>{{habit.endDate   | date : 'shortDate' }}</p>
+                <p>{{habit.description}}</p>
+                
+                
+                <button (click)="editHabit()"><fa-icon [icon]="faEdit" size="2x"></fa-icon></button>
+                <button (click)="deleteHabit()"><fa-icon [icon]="faTrashCan" size="2x"></fa-icon></button>
+                    
                 </ng-container>
 
-            
-            
-    </tr>
+                <!----------------EDIT FORM-------------------->
 
-    <tr>{{habit.amount}} </tr>
-    <tr>{{habit.startDate | date : 'shortDate' }}</tr>
-    <tr>{{habit.endDate   | date : 'shortDate' }}</tr>
-    <tr>{{habit.description}}</tr>
+                <ng-container *ngIf="editMode">
+                    <input type="text" [(ngModel)]="editTitle"><br>
 
-    <tr><Button (click)="editHabit()"><fa-icon [icon]="faEdit"></fa-icon></Button>
-        <Button (click)="deleteHabit()"><fa-icon [icon]="faTrashCan"></fa-icon></Button>
-        <!-- CheckMark Logic -->
-        <!-- <ng-container *ngIf="!checkmarkStatus">
-            <button (click)="updateTracker()" ><fa-icon [icon]="faCheckCircle"></fa-icon></button>
-        </ng-container>
-        <ng-container *ngIf="checkmarkStatus">
-            <button (click)="updateTracker()" ><fa-icon [icon]="faCircleCheck"></fa-icon></button>
-        </ng-container> -->
+                    <select [(ngModel)]="editCategory_id" >
+                        <option *ngFor="let cat of CategoryList" [value]="cat.id">{{cat.type}}</option>
+                    </select><br>
 
-    </tr>
-</table>
+                    <input type="text" [(ngModel)]="editAmount"> <br />
+                    <input type="date" [(ngModel)]='editStartDate'  ><br>
+                    <input type="date" [(ngModel)]='editEndDate'><br>
+                    <input type="text" [(ngModel)]="editDescription"><br>
 
+                    <tr><Button (click)="saveEdit()"><fa-icon [icon]="faFloppyDisk" size="2x"></fa-icon></Button>
+                        <Button (click)="cancelEdit()"><fa-icon [icon]="faXmarkCircle" size="2x"></fa-icon></Button></tr>
+                
+                </ng-container>
+            </div>
 
-<!----------------EDIT FORM-------------------->
+            <div *ngIf="!editMode" class="col-3">
+                <ng-container *ngIf="!checkmarkStatus">
+                    <button (click)="updateTracker()" ><fa-icon [icon]="faCheckCircle" size="5x" ></fa-icon></button>
+                </ng-container>
+                <ng-container *ngIf="checkmarkStatus">
+                    <button (click)="updateTracker()" ><fa-icon [icon]="faCircleCheck" size="5x"></fa-icon></button>
+                </ng-container>
+            </div>
 
-<table *ngIf="editMode">
-    <th><input type="text" [(ngModel)]="editTitle"></th>
-
-    <tr><select [(ngModel)]="editCategory_id" >
-        <option *ngFor="let cat of CategoryList" [value]="cat.id">{{cat.type}}</option>
-    </select></tr>
-
-    <tr><input type="text" [(ngModel)]="editAmount"> </tr>
-    <tr><input type="date" [(ngModel)]='editStartDate'  ></tr>
-    <tr><input type="date" [(ngModel)]='editEndDate'></tr>
-    <tr><input type="text" [(ngModel)]="editDescription"></tr>
-
-    <tr><Button (click)="saveEdit()"><fa-icon [icon]="faFloppyDisk"></fa-icon></Button>
-        <Button (click)="cancelEdit()"><fa-icon [icon]="faXmarkCircle"></fa-icon></Button></tr>
-   
-</table>
-<app-habit-calendar-bar [habit]="habit"></app-habit-calendar-bar>
+            <app-habit-calendar-bar [habit]="habit"></app-habit-calendar-bar>
+    </div>
 
 
 
-</body>
+
+
+</div>
+
+  
