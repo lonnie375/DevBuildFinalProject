@@ -1,6 +1,4 @@
-button {
-    margin-right: 10px;
-}
+
 
 .container {
     background-color: #a4b37b;
@@ -8,7 +6,7 @@ button {
 }
 
 body {
-    background-color: #285430;
+    background-color:#285430
 }
 
 * {
@@ -24,9 +22,12 @@ h2 {
     font-family: 'Montserrat';
     font-weight: bolder;
     font-size: 50px;
+    justify-content: center;
+    
 }
 
 p {
     font-family: 'Montserrat';
     font-size: 25px;
 }
+
