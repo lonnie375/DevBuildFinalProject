@@ -1,6 +1,6 @@
 # Habit tracker
 ## Description
-A web application created to help a use create and keep track of habits. It includes a lit of the users current habits, progress for the previous week, and tracking by date and completion. 
+A web application created to help a use create and keep track of habits. It includes a list of the users current habits, progress for the previous week, and tracking by date and completion. 
 
 ## Contributors
 * Lindsey White - LWhite5
